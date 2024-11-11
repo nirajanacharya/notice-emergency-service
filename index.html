@@ -17,6 +17,7 @@
             --background-color: #f1faee;
             --card-background: #ffffff;
             --success-color: #2a9d8f;
+            --link-color: #0056b3;
         }
 
         body {
@@ -102,7 +103,7 @@
         }
 
         .button {
-            background-color: var(--primary-color);
+            background-color: var(--link-color);
             color: white;
             border: none;
             border-radius: 15px;
@@ -118,7 +119,33 @@
         }
 
         .button:hover {
+            background-color: #003d82;
+        }
+
+        .download-button {
+            background-color: var(--primary-color);
+        }
+
+        .download-button:hover {
             background-color: #c1121f;
+        }
+
+        .emergency-link {
+            display: block;
+            text-align: center;
+            color: var(--link-color);
+            font-size: 1.2em;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #e8f4ff;
+            border-radius: 10px;
+            border: 2px solid var(--link-color);
+            word-break: break-all;
+            text-decoration: none;
+        }
+
+        .emergency-link:hover {
+            background: #d1e8ff;
         }
 
         .help-text {
@@ -126,6 +153,22 @@
             margin-top: 2rem;
             font-size: 1.2em;
             color: #666;
+        }
+
+        .link-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #e8f4ff;
+            border-radius: 10px;
+            border: 2px dashed var(--link-color);
+        }
+
+        .link-title {
+            text-align: center;
+            color: var(--link-color);
+            font-size: 1.3em;
+            margin-bottom: 1rem;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -151,10 +194,22 @@
             ⚠️ कृपया ध्यान दिनुहोस्: यो लिंक र QR कोड तपाईंको मोबाइलमा सेभ गर्नुहोस्। आपतकालमा चाँडो सहयोग पाउन यो धेरै जरुरी छ।
         </div>
 
+        <div class="link-section">
+            <div class="link-title">📱 आपतकालीन सेवाको लिंक</div>
+            <a href="https://www.shivarajmun.gov.np/ne/content/shivraj-emergency-service" 
+               class="emergency-link" 
+               target="_blank">
+                www.shivarajmun.gov.np/ne/content/shivraj-emergency-service
+            </a>
+            <p style="text-align: center; color: var(--link-color);">
+                ☝️ यो नीलो लिंकलाई आफ्नो फोनमा लेखेर राख्नुहोस्
+            </p>
+        </div>
+
         <div class="steps">
             <div class="step">
                 <div class="step-number">१</div>
-                <p>तलको नीलो बटनमा थिच्नुहोस् र लिंकलाई आफ्नो मोबाइलको नोटमा लेखेर राख्नुहोस्।</p>
+                <p>माथिको नीलो लिंकलाई आफ्नो मोबाइलको नोटमा लेखेर राख्नुहोस्।</p>
             </div>
             
             <div class="step">
@@ -172,14 +227,8 @@
             <img src="./shivaraj.jpg" alt="आपतकालीन सेवा QR कोड" class="qr-code" id="qrCode">
         </div>
         
-        <a href="https://www.shivarajmun.gov.np/ne/content/shivraj-emergency-service" 
-           class="button" 
-           target="_blank">
-            🔗 यहाँ थिच्नुहोस् - आपतकालीन सेवा लिंक
-        </a>
-        
         <a href="./shivaraj.jpg" 
-           class="button" 
+           class="button download-button" 
            download="shivaraj-emergency-qr.jpg">
             📱 QR कोड डाउनलोड गर्नुहोस्
         </a>
