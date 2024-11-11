@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>शिवराज नगरपालिका आपतकालीन सेवा</title>
+    <title>शिवराज नगरपालिका आपतकालीन सहयोग</title>
     <style>
         * {
             margin: 0;
@@ -22,14 +22,15 @@
         body {
             font-family: Arial, sans-serif;
             background-color: var(--background-color);
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-color);
             min-height: 100vh;
             padding: 20px;
+            font-size: 18px;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             background-color: var(--card-background);
             padding: 2rem;
@@ -39,26 +40,50 @@
 
         h1 {
             color: var(--primary-color);
-            font-size: 2em;
+            font-size: 2.5em;
             text-align: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 3px solid var(--primary-color);
         }
 
-        .info-text {
+        .steps {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             font-size: 1.2em;
-            margin: 1.5rem 0;
-            text-align: center;
-            padding: 0 1rem;
         }
 
         .important-notice {
             background-color: #fff3cd;
             border-left: 5px solid #ffc107;
-            padding: 1rem;
-            margin: 1.5rem 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
             border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
         }
 
         .qr-container {
@@ -67,7 +92,7 @@
         }
 
         .qr-code {
-            max-width: 280px;
+            max-width: 300px;
             width: 100%;
             height: auto;
             border: 8px solid white;
@@ -76,180 +101,92 @@
             margin: 1rem auto;
         }
 
-        .link-container {
-            text-align: center;
-            margin: 1.5rem 0;
-            word-wrap: break-word;
-        }
-
-        .link {
-            color: var(--primary-color);
-            font-size: 1.1em;
-            text-decoration: none;
-            border-bottom: 2px dashed var(--primary-color);
-            padding-bottom: 2px;
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
         .button {
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 50px;
-            padding: 1rem 2rem;
-            font-size: 1.2em;
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            font-size: 1.4em;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
             width: 100%;
             text-align: center;
+            margin: 1rem 0;
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .button:hover {
-            transform: translateY(-2px);
             background-color: #c1121f;
         }
 
-        .button:active {
-            transform: translateY(0);
-        }
-
-        .success-message {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--success-color);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            display: none;
-            animation: slideDown 0.3s ease-out;
-            z-index: 1000;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translate(-50%, -100%);
-            }
-            to {
-                transform: translate(-50%, 0);
-            }
+        .help-text {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.2em;
+            color: #666;
         }
 
         @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
             .container {
                 padding: 1rem;
             }
 
             h1 {
-                font-size: 1.5em;
-            }
-
-            .info-text {
-                font-size: 1.1em;
-            }
-
-            .button {
-                padding: 1rem;
-            }
-        }
-
-        /* High Contrast Mode */
-        @media (prefers-contrast: high) {
-            :root {
-                --primary-color: #000000;
-                --text-color: #000000;
-                --background-color: #ffffff;
-            }
-
-            .button {
-                border: 2px solid black;
-            }
-
-            .link {
-                border-bottom: 2px solid black;
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="success-message" id="successMessage"></div>
-    
     <div class="container">
-        <h1>शिवराज नगरपालिका आपतकालीन सेवा</h1>
+        <h1>शिवराज नगरपालिका आपतकालीन सहयोग</h1>
         
-        <p class="info-text">
-            शिवराज नगरपालिकाको आधिकारिक वेबसाइटमा यो आपतकालीन सेवा समावेश छ। आपतकालीन सेवामा तुरुन्त पहुँचको लागि, तल दिएको QR कोड स्क्यान गर्न सक्नुहुन्छ अथवा तलको लिंकमा क्लिक गर्न सक्नुहुन्छ।
-        </p>
-
         <div class="important-notice">
-            <p class="info-text" style="margin: 0;">
-                महत्त्वपूर्ण सूचना: कृपया तलको लिंकलाई तपाईंको फोनमा "सेभ" गर्नुहोस् ताकि आपतकालमा तुरुन्तै प्रयोग गर्न सक्नुहुनेछ।
-            </p>
+            ⚠️ कृपया ध्यान दिनुहोस्: यो लिंक र QR कोड तपाईंको मोबाइलमा सेभ गर्नुहोस्। आपतकालमा चाँडो सहयोग पाउन यो धेरै जरुरी छ।
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">१</div>
+                <p>तलको नीलो बटनमा थिच्नुहोस् र लिंकलाई आफ्नो मोबाइलको नोटमा लेखेर राख्नुहोस्।</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">२</div>
+                <p>यदि तपाईंसँग स्मार्टफोन छ भने, तलको QR कोडको फोटो खिच्नुहोस् वा डाउनलोड गर्नुहोस्।</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">३</div>
+                <p>आपतकालीन अवस्थामा यो लिंक वा QR कोड प्रयोग गरेर तुरुन्तै सहयोग माग्न सक्नुहुनेछ।</p>
+            </div>
         </div>
 
         <div class="qr-container">
-            <img src="./shivaraj.jpg" alt="Emergency App QR Code" class="qr-code" id="qrCode">
+            <img src="./shivaraj.jpg" alt="आपतकालीन सेवा QR कोड" class="qr-code" id="qrCode">
         </div>
         
-        <div class="link-container">
-            <a href="https://www.shivarajmun.gov.np/ne/content/shivraj-emergency-service" 
-               class="link" 
-               id="appLink" 
-               target="_blank">
-                https://www.shivarajmun.gov.np/ne/content/shivraj-emergency-service
-            </a>
-        </div>
+        <a href="https://www.shivarajmun.gov.np/ne/content/shivraj-emergency-service" 
+           class="button" 
+           target="_blank">
+            🔗 यहाँ थिच्नुहोस् - आपतकालीन सेवा लिंक
+        </a>
         
-        <div class="button-container">
-            <button class="button" onclick="copyLink()">लिंक कपी गर्नुहोस्</button>
-            <button class="button" onclick="downloadQR()">QR कोड डाउनलोड गर्नुहोस्</button>
-        </div>
+        <a href="./shivaraj.jpg" 
+           class="button" 
+           download="shivaraj-emergency-qr.jpg">
+            📱 QR कोड डाउनलोड गर्नुहोस्
+        </a>
+
+        <p class="help-text">
+            सहयोग चाहिएमा नजिकैको युवा वा चिनेको व्यक्तिलाई सोध्नुहोस्
+        </p>
     </div>
-
-    <script>
-        function showMessage(message) {
-            const messageElement = document.getElementById('successMessage');
-            messageElement.textContent = message;
-            messageElement.style.display = 'block';
-            
-            setTimeout(() => {
-                messageElement.style.display = 'none';
-            }, 3000);
-        }
-
-        function copyLink() {
-            const link = document.getElementById('appLink').href;
-            navigator.clipboard.writeText(link)
-                .then(() => {
-                    showMessage('लिंक कपी भयो! कृपया यो लिंकलाई तपाईंको फोनको नोटमा सेभ गर्नुहोस्।');
-                })
-                .catch(err => {
-                    showMessage('लिंक कपी गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।');
-                    console.error('कपी गर्न सकिएन:', err);
-                });
-        }
-
-        function downloadQR() {
-            const qrImage = document.getElementById('qrCode');
-            const link = document.createElement('a');
-            link.href = qrImage.src;
-            link.download = 'EmergencyAppQRCode.png';
-            
-            try {
-                link.click();
-                showMessage('QR कोड डाउनलोड भयो! यसलाई तपाईंको फोनको ग्यालरीमा सुरक्षित गर्नुहोस्।');
-            } catch (err) {
-                showMessage('QR कोड डाउनलोड गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।');
-                console.error('डाउनलोड गर्न सकिएन:', err);
-            }
-        }
-    </script>
 </body>
 </html>
